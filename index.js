@@ -3,8 +3,8 @@ const app = express();
 const port = process.env.PORT || 8080;
 const cors = require('cors');
 const utils = require('./utils.js');
-const moviesBackend = process.env.BACKEND_MOVIES;
-const scheduleBackend = process.env.BACKEND_SCHEDULE;
+const moviesBackend = process.env.BACKEND_MOVIES || '0.0.0.0';
+const scheduleBackend = process.env.BACKEND_SCHEDULE || '0.0.0.0';
 
 // url to movies and schedule microservices
 // const MOVIES_API_URL = process.env.MOVIES_API_URL;

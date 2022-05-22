@@ -5,7 +5,12 @@ const getDataFromApi = async (url) => {
     return new Promise((resolve, reject) => {
         request(url, (error, res, body) => {
             if (!error && res.statusCode == 200) {
-                resolve(JSON.parse(body));
+                if (body) {
+                    resolve(JSON.parse(body));
+                } else {
+                    // empty array if no data is found from request
+                    resolve([]);
+                }
             } else {
                 reject(error);
             }

@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const host = '0.0.0.0';
 const port = process.env.PORT || 8080;
 const cors = require('cors');
 const utils = require('./utils.js');
@@ -11,7 +10,7 @@ app.use(cors());
 
 app.get("/", async (req, res) => {
     try {
-        const moviesWithSchedule = await utils.mergeMoviesWithSchedule(`http://${host}:${port}${moviesBackend}`, `http://${host}:${port}${scheduleBackend}`);
+        const moviesWithSchedule = await utils.mergeMoviesWithSchedule(`http://${moviesBackend}:${port}`, `http://${scheduleBackend}:${port}`);
         res.send(moviesWithSchedule);
     } catch (error) {
         console.error(error);

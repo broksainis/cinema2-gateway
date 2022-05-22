@@ -4,8 +4,9 @@ const request = require('request');
 const getDataFromApi = async (url) => {
     return new Promise((resolve, reject) => {
         request(url, (error, res, body) => {
+            console.log(body);
             if (!error && res.statusCode == 200) {
-                resolve(body);
+                resolve(JSON.parse(body));
             } else {
                 reject(error);
             }

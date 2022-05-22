@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const host = '0.0.0.0';
 const port = process.env.PORT || 8080;
 const cors = require('cors');
 const utils = require('./utils.js');
